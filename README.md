@@ -44,4 +44,66 @@ MainApplication.java의 protected List<ReactPackage> getPackages() 부분에서 
 
 참고: https://github.com/rebeccahughes/react-native-device-info/issues/243
 
+### 안드로이드에서 can’t not find Symbol 에러
+
+mobx 라이브러리 추가한 것이 문제의 발단이었음
+
+#### Solution
+
+JSC가 예전 버전이라 에러가 나는 것 -> JSC를 업데이트해야 한다.
+
+업데이트 하는 방법은 다음과 같다.
+
+1. package.json에 jsc-android 추가 후 npm install 혹은 yarn 명령어로 설치
+
+```
+dependencies {
++  "jsc-android": "236355.x.x"
+```
+
+2. android/build.gradle에 다음 코드 추가
+
+```gradle
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
++       maven {
++           // Local Maven repo containing AARs with JSC library built for Android
++           url "$rootDir/../node_modules/jsc-android/dist"
++       }
+    }
+}
+```
+
+3. android/app/build.gradle에 다음 코드 추가
+
+```gradle
+}
+ 
++configurations.all {
++    resolutionStrategy {
++        force 'org.webkit:android-jsc:r236355'
++    }
++}
+ 
+dependencies {
+    compile fileTree(dir: "libs", include: ["*.jar"])
+```
+
+4. rebuild하면 업데이트된 버전의 JSC를 사용할 수 있다!
+
+참고: https://github.com/react-community/jsc-android-buildscripts#how-to-use-it-with-my-react-native-app
+
+
+
+
+
+
+
+
 
