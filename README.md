@@ -177,6 +177,21 @@ end
 
 참고: https://github.com/facebook/react-native/issues/14925
 
+### error: bundling failed: Error: Unable to resolve module `./../react-transform-hmr/lib/index.js`
+
+#### Solution
+
+캐시를 클린해야 한다.
+
+```bash
+rm -rf $TMPDIR/react-*; rm -rf $TMPDIR/haste-*; rm -rf $TMPDIR/metro-*; watchman watch-del-all
+ 
+# Start Metro Bundler directly
+react-native start
+```
+
+참고: https://github.com/facebook/react-native/issues/21490
+
 
 
 
