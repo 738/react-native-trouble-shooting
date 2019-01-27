@@ -99,9 +99,23 @@ dependencies {
 
 참고: https://github.com/react-community/jsc-android-buildscripts#how-to-use-it-with-my-react-native-app
 
+### 파이어베이스 관련 안드로이드 빌드 에러
 
+안드로이드에서 빌드하면 다음 에러 발생
 
+```
+Program type already present: com.google.android.gms.internal.measurement.zzwp 
+```
 
+#### Solution
+
+파이어베이스 코어 라이브러리를 최신 버전으로 올리면 된다.
+
+안드로이드 파이어베이스 sdk의 버전 리스트는 여기를 참고하면 된다.
+
+[링크](https://firebase.google.com/support/release-notes/android#latest_sdk_versions)
+
+참고: https://stackoverflow.com/questions/50146640/android-studio-program-type-already-present-com-google-android-gms-internal-me
 
 
 
