@@ -192,6 +192,33 @@ react-native start
 
 참고: https://github.com/facebook/react-native/issues/21490
 
+## Javascript
+
+### decorator 관련 빌드 에러
+
+mobx 라이브러리를 사용하기 위해 decorator를 사용해야 했었는데 빌드 도중 다음 에러가 났다.
+
+```
+Error build-assets - new decorators proposal is not supported yet. You must pass the"legacy": true option
+```
+
+#### Solution
+
+1. `@babel/plugin-proposal-decorators`를 설치
+
+```bash
+npm install --save-dev @babel/plugin-proposal-decorators
+```
+
+2. tsconfig.json 파일에 다음 라인을 입력
+
+```json
+["@babel/plugin-proposal-decorators", { "legacy": true }],
+```
+
+참고: https://github.com/mirumee/saleor/issues/2179
 
 
+## Contributing
 
+react-native 관련 트러블 슈팅 공유는 언제나 환영입니다!
