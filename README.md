@@ -95,7 +95,7 @@ dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
 ```
 
-4. rebuild하면 업데이트된 버전의 JSC를 사용할 수 있다!
+4. rebuild하면 업데이트된 버전의 JSC를 사용할 수 있다.
 
 참고: https://github.com/react-community/jsc-android-buildscripts#how-to-use-it-with-my-react-native-app
 
@@ -117,6 +117,19 @@ Program type already present: com.google.android.gms.internal.measurement.zzwp
 
 참고: https://stackoverflow.com/questions/50146640/android-studio-program-type-already-present-com-google-android-gms-internal-me
 
+## iOS
+
+### iOS 빌드 중 에러 : Duplicate Module Name: react-name
+
+#### Solution
+
+Pods 파일을 제거하고 새로 설치한다.
+
+```bash
+cd ios
+rm -rf Pods
+pod install
+```
 
 
 
