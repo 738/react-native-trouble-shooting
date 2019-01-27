@@ -131,6 +131,20 @@ rm -rf Pods
 pod install
 ```
 
+참고: https://stackoverflow.com/questions/50805753/duplicate-module-name-react-native
+
+### iOS 빌드 중 에러 - Xcode 10: Build input file double-conversion cannot be found
+
+#### Solution
+
+다음 명령어를 프로젝트 루트 경로에서 실행
+
+```bash
+$ cd node_modules/react-native/scripts && ./ios-install-third-party.sh && cd ../../../
+$ cd node_modules/react-native/third-party/glog-0.3.5/ && ../../scripts/ios-configure-glog.sh && cd ../../../../
+```
+
+참고: https://github.com/facebook/react-native/issues/21168
 
 
 
