@@ -192,6 +192,16 @@ react-native start
 
 참고: https://github.com/facebook/react-native/issues/21490
 
+### clang: error: no such file or directory: libLocalize.a
+
+#### Solution
+
+첫번째 방법: xcode 종료 후, `rm -rf ~/Library/Developer/Xcode/DerivedData/*` 명령어 실행 후 다시 xcode 실행
+
+두번째 방법: RNLocalize.xcodeproj를 libraries에서 제거한 다음 다시 add file하면 됨
+
+참고: https://github.com/react-native-community/react-native-device-info/issues/446#issuecomment-456052981
+
 ## Javascript
 
 ### decorator 관련 빌드 에러
