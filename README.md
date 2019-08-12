@@ -117,6 +117,22 @@ Program type already present: com.google.android.gms.internal.measurement.zzwp
 
 참고: https://stackoverflow.com/questions/50146640/android-studio-program-type-already-present-com-google-android-gms-internal-me
 
+### Program type already present: android.support.v4.app.INotificationSideChannel
+
+#### Solution
+
+```gradle
+// build.gradle
+buildscript {
+    // others...
+    ext {
+        // others...
+        googlePlayServicesVersion = "16.0.0" // Add this
+        firebaseVersion = "17.0.0" // Add this
+    }
+}
+```
+
 ## iOS
 
 ### iOS 빌드 중 에러 : Duplicate Module Name: react-name
